@@ -1,0 +1,9 @@
+{
+  "name": "R3-scratch"
+, "files": [ { "git": 1 }, {"directory": ".", "filters": ["*.*"] } ]
+, "build": {
+    "directory": "."
+  , "build": "make all"
+  , "clean": "make clean"
+  }
+}
