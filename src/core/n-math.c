@@ -500,6 +500,8 @@ compare:
 	return R_ARG2;
 }
 
+// @dt2 i base my scratch-native on minimum. .c part
+
 /***********************************************************************
 **
 */	REBNATIVE(minimum)

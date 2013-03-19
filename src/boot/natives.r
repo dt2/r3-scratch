@@ -1054,6 +1054,8 @@ lesser-or-equal?: native [
 	value1 value2
 ]
 
+; @dt2 i base my scratch-native on minimum. .r part
+
 minimum: native [
 	{Returns the lesser of the two values.}
 	value1 [scalar! date! series!]
@@ -1080,3 +1082,12 @@ zero?: native [
 	{Returns TRUE if the value is zero (for its datatype).}
 	value
 ]
+
+;-- @dt2's scratch (discovered where to put rebol-header) - scratch.c
+
+mini-scratch: native [
+	{Returns the lesser of the two values.}
+	value1 [scalar! date! series!]
+	value2 [scalar! date! series!]
+]
+

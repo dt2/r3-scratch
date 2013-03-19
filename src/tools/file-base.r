@@ -105,6 +105,9 @@ core: [
 	u-png.c
 	u-sha1.c
 	u-zlib.c
+	
+	; @dt2 discovered where to add src/core-files
+	z-scratch.c
 ]
 
 made: [
