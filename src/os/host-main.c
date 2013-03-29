@@ -120,7 +120,7 @@ int main(int argc, char **argv)
 	REBYTE vers[8];
 	REBYTE *line;
 	REBINT n;
-
+	
 #ifdef TO_WIN32  // In Win32 get args manually:
 	int argc;
 	REBCHR **argv;
@@ -139,6 +139,9 @@ int main(int argc, char **argv)
 	// Must be done before an console I/O can occur. Does not use reb-lib,
 	// so this device should open even if there are other problems.
 	Open_StdIO();  // also sets up interrupt handler
+
+	fputs("main called, printing on stderr\n", stderr); // stderr works for logging @dt2
+	//fputs("main out\n", stdout); //does not work, rebol takes over
 
 	// Initialize the REBOL library (reb-lib):
 	if (!CHECK_STRUCT_ALIGN) Host_Crash("Incompatible struct alignment");
