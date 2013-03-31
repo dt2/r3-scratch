@@ -12,10 +12,10 @@ build:
 	make -C make | tee local-buildlog.txt
 	
 clean: cp-r3-make
+	rm make/r3 || true
 	make -C make make
-	rm make/r3
 	make -C make clean prep
 	
-cp-r3-make: build
+cp-r3-make:
 	cp ../r3 make/r3-make
 

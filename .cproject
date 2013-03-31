@@ -32,6 +32,8 @@
 								<option id="gnu.c.compiler.option.include.paths.1367877718" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/r3-scratch/src/include}&quot;"/>
 								</option>
+								<option id="gnu.c.compiler.option.preprocessor.def.symbols.634232574" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols"/>
+								<option id="gnu.c.compiler.option.misc.other.559575613" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fvisibility=hidden -m32" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.272790848" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.1040912636" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug">
@@ -75,6 +77,18 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.1373501794.826925952" name="host-main.c" rcbsApplicability="disable" resourcePath="src/os/host-main.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.392581714.1867854189">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.392581714.1867854189" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.392581714">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.822690541" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
+								<listOptionValue builtIn="false" value="TO_LINUX"/>
+								<listOptionValue builtIn="false" value="ECLIPSE_INFO=&quot;\&quot;Config: ${ConfigName}\&quot;&quot;"/>
+								<listOptionValue builtIn="false" value="FILE_OFFSET_BITS=64"/>
+								<listOptionValue builtIn="false" value="REB_CORE"/>
+								<listOptionValue builtIn="false" value="REB_EXE"/>
+							</option>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2123359443" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
 					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.1373501794.2018494719" name="/" resourcePath="src/core">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.882544309" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug" unusedChildren="">
 							<targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.debug" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.debug"/>
@@ -132,6 +146,9 @@
 								<option id="gnu.c.compiler.option.include.paths.209484235" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/r3-scratch/src/include}&quot;"/>
 								</option>
+								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1392251445" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="&quot;ECLIPSE_INFO=${ConfigName}&quot;"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.853038688" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.1705179501" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release">
@@ -146,7 +163,7 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.640734207" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release"/>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.release.190365163" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.release">
-								<option id="gnu.both.asm.option.include.paths.1387200234" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath"/>
+								<option id="gnu.both.asm.option.include.paths.1387200234" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths"/>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.777405219" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
@@ -207,6 +224,9 @@
 	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1373501794;cdt.managedbuild.config.gnu.exe.debug.1373501794.826925952;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.392581714.1867854189;cdt.managedbuild.tool.gnu.c.compiler.input.2123359443">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.210012345;cdt.managedbuild.config.gnu.exe.release.210012345.794037855;cdt.managedbuild.tool.gnu.c.compiler.exe.release.1010250946;cdt.managedbuild.tool.gnu.c.compiler.input.422177754">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 		</scannerConfigBuildInfo>
@@ -226,6 +246,9 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1373501794;cdt.managedbuild.config.gnu.exe.debug.1373501794.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1162399465;cdt.managedbuild.tool.gnu.c.compiler.input.272790848">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1373501794;cdt.managedbuild.config.gnu.exe.debug.1373501794.579143430;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.392581714.1696720115;cdt.managedbuild.tool.gnu.c.compiler.input.1248318842">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1373501794;cdt.managedbuild.config.gnu.exe.debug.1373501794.280508332;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1186160605;cdt.managedbuild.tool.gnu.c.compiler.input.345090958">

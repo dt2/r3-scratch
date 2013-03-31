@@ -86,7 +86,7 @@ extern void Put_Str(char *buf);
 extern REBYTE *Get_Str();
 
 void Host_Crash(REBYTE *reason) {
-	OS_Crash("REBOL Host Failure", reason);
+	OS_Crash(RB"REBOL Host Failure", reason);
 }
 
 
@@ -140,17 +140,18 @@ int main(int argc, char **argv)
 	// so this device should open even if there are other problems.
 	Open_StdIO();  // also sets up interrupt handler
 
-	fputs("main called, printing on stderr\n", stderr); // stderr works for logging @dt2
-	//fputs("main out\n", stdout); //does not work, rebol takes over
+	//@dt2 how to log? like this?
+	//fputs("main called, printing on stderr\n", stderr); // stderr works for logging
+	//fputs("main out\n", stdout); //does not work with werecon, rebol takes over?
 
 	// Initialize the REBOL library (reb-lib):
-	if (!CHECK_STRUCT_ALIGN) Host_Crash("Incompatible struct alignment");
-	if (!Host_Lib) Host_Crash("Missing host lib");
+	if (!CHECK_STRUCT_ALIGN) Host_Crash(RB "Incompatible struct alignment");
+	if (!Host_Lib) Host_Crash(RB "Missing host lib");
 	// !!! Second part will become vers[2] < RL_REV on release!!!
-	if (vers[1] != RL_VER || vers[2] != RL_REV) Host_Crash("Incompatible reb-lib DLL");
+	if (vers[1] != RL_VER || vers[2] != RL_REV) Host_Crash(RB "Incompatible reb-lib DLL");
 	n = RL_Init(&Main_Args, Host_Lib);
-	if (n == 1) Host_Crash("Host-lib wrong size");
-	if (n == 2) Host_Crash("Host-lib wrong version/checksum");
+	if (n == 1) Host_Crash(RB "Host-lib wrong size");
+	if (n == 2) Host_Crash(RB "Host-lib wrong version/checksum");
 
 #ifndef REB_CORE
 	Init_Windows();
@@ -180,12 +181,16 @@ int main(int argc, char **argv)
 			|| Main_Args.options & RO_HALT  // --halt option
 		)
 	){
+		//@dt2 tries logging
+#ifdef ECLIPSE_INFO
+		Put_Str("Eclipse-info: " ECLIPSE_INFO "\n");
+#endif
 		n = 0;  // reset error code (but should be able to set it below too!)
 		while (TRUE) {
 			Put_Str(PROMPT_STR);
 			if ((line = Get_Str())) {
 				RL_Do_String(line, 0, 0);
-				RL_Print_TOS(0, RESULT_STR);
+				RL_Print_TOS(0, RB RESULT_STR);
 				OS_Free(line);
 			}
 			else break; // EOS

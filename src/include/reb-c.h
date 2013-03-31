@@ -106,6 +106,7 @@ typedef long double     REBDCL;     // more than 80 or more bits
 #endif
 
 typedef unsigned char   REBYTE;     // unsigned byte data
+#define RB (REBYTE*) //@dt2
 typedef unsigned short  REBUNI;     // unicode char
 
 // REBCHR - only to refer to OS char strings (not internal strings)
