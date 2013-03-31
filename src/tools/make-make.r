@@ -175,8 +175,9 @@ libr3.so:	$(OBJS)
 	$(LS) libr3.so
 
 # PUBLIC: Host using the shared lib:
+# @dt2 trick: $ORIGIN/. loads lib without LD_LIBRARY_PATH
 host$(BIN_SUFFIX):	$(HOST)
-	$(CC) -o host$(BIN_SUFFIX) $(HOST) libr3.so $(CLIB)
+	$(CC)  -Wl,-R,'$$ORIGIN/.' -o host$(BIN_SUFFIX) $(HOST) libr3.so $(CLIB)
 	$(STRIP) host$(BIN_SUFFIX)
 	$(LS) host$(BIN_SUFFIX)
 	echo "export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH"

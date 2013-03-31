@@ -12,6 +12,8 @@ ping:
 	
 run-dll: miniclean build-dll
 	#LD_LIBRARY_PATH=$(PWD)/make make/host ../local-scrapbook.r3
+	set|grep ^PATH=
+	set|grep LD_LIBRARY_PATH || true # nothing :)
 	make/host ../local-scrapbook.r3
 	
 miniclean:
@@ -30,8 +32,7 @@ run:
 build:
 	make -C make | tee local-buildlog.txt
 	
-clean: cp-r3-make
-	rm make/r3 || true
+clean: miniclean cp-r3-make
 	make -C make make
 	make -C make clean prep
 	ls make
