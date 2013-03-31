@@ -149,6 +149,7 @@
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1392251445" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="&quot;ECLIPSE_INFO=${ConfigName}&quot;"/>
 								</option>
+								<option id="gnu.c.compiler.option.misc.other.733163225" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fvisibility=hidden -m32" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.853038688" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.1705179501" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release">
@@ -188,6 +189,17 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.210012345.1700802407" name="host-main.c" rcbsApplicability="disable" resourcePath="src/os/host-main.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.release.1010250946.649285003">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.1010250946.649285003" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.1010250946">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1387063621" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
+								<listOptionValue builtIn="false" value="TO_LINUX"/>
+								<listOptionValue builtIn="false" value="ECLIPSE_INFO=&quot;\&quot;Config: ${ConfigName}\&quot;&quot;"/>
+								<listOptionValue builtIn="false" value="REB_CORE"/>
+								<listOptionValue builtIn="false" value="REB_EXE"/>
+							</option>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1468812513" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
 					<folderInfo id="cdt.managedbuild.config.gnu.exe.release.210012345.1874278926" name="/" resourcePath="src/core">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.release.316528335" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.release" unusedChildren="">
 							<targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.release" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.release"/>
