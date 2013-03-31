@@ -1,3 +1,5 @@
+//@dt2 fails in eclipse, remove. no "rebol-lib.h"
+
 /***********************************************************************
 **
 **  REBOL [R3] Language Interpreter and Run-time Environment

@@ -1,3 +1,5 @@
+//@dt2 fails in eclipse, remove. another main is os/host
+
 /***********************************************************************
 **
 **  REBOL [R3] Language Interpreter and Run-time Environment

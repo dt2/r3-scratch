@@ -22,7 +22,7 @@ src/reb-lib-doc.txt
 #################
 
 *.pydevproject
-.project
+# .project #@dt2 want
 .metadata
 bin/
 tmp/
@@ -180,3 +180,6 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+#@dt2
+local-*

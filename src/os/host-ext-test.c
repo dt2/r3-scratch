@@ -1,3 +1,5 @@
+//@dt2 fails in eclipse, remove. RX_Call double defined, due to static linking?
+
 /***********************************************************************
 **
 **  REBOL [R3] Language Interpreter and Run-time Environment

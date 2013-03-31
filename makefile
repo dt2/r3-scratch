@@ -9,10 +9,11 @@ run:
 	make -C ../ run-nk
 
 build:
-	make -C make
+	make -C make | tee local-buildlog.txt
 	
 clean: cp-r3-make
 	make -C make make
+	rm make/r3
 	make -C make clean prep
 	
 cp-r3-make: build
