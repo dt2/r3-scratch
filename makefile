@@ -1,4 +1,5 @@
 all: run-dll
+#all: run-dll
 #all: clean build-dll
 #all: clean build run
 #all: build run
@@ -9,9 +10,14 @@ all: run-dll
 ping:
 	pwd
 	
-run-dll: build-dll
-	ls make
-	LD_LIBRARY_PATH=$(PWD)/make make/host ../local-scrapbook.r3
+run-dll: miniclean build-dll
+	#LD_LIBRARY_PATH=$(PWD)/make make/host ../local-scrapbook.r3
+	make/host ../local-scrapbook.r3
+	
+miniclean:
+	rm make/host || true
+	rm make/libr3.so || true
+	rm make/r3 || true
 	
 build-dll:
 	mkdir -p make/objs

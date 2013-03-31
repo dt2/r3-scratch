@@ -183,3 +183,5 @@ pip-log.txt
 
 #@dt2
 local-*
+make/host
+make/libr3.so
