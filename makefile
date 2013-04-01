@@ -7,19 +7,30 @@
 #all: clean
 #all: build
 all: build-andro
+#all: clean-andro
 
 build-andro: miniclean
-	cd make && make make OS_ID=0.4.3
-	cat make/makefile
-	cd make && make clean prep
-	
 	cd make && \
 	INCL=~/android-ndk-r8e/platforms/android-14/arch-arm/usr/include \
-	TOOLS=~/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/linux-x86/bin/arm-linux-androideabi- \
-	make &&\
-	ls -l
-	#make -C make | tee local-buildlog.txt
+	#TOOLS=~/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/linux-x86/bin/arm-linux-androideabi- \
+	TOOLS=~/arm-2012.09/bin/arm-none-linux-gnueabi- \
+	make
 	
+	cp -a make/r3 make/r3-andro
+	readelf -h make/r3-andro
+	#ls -l make
+	#make -C make | tee local-buildlog.txt
+
+clean-andro: cp-r3-make
+	cd make && make make OS_ID=0.4.3
+	cd make && make clean
+	cd make && make prep
+	ls -l make
+
+cp-r3-make:
+	rm make/r3-make || true
+	cp ../r3 make/r3-make #broken symlink
+
 make0:
 	#make -C make make
 	#$(REBOL) $T/make-make.r $(OS_ID)
@@ -52,6 +63,4 @@ run:
 build:
 	make -C make | tee local-buildlog.txt
 	
-cp-r3-make:
-	cp ../r3 make/r3-make
 
