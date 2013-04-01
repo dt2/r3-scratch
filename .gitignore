@@ -185,3 +185,4 @@ pip-log.txt
 local-*
 make/host
 make/libr3.so
+make/makefile #messed up by make make everytime. rely on: cd make && ./r3-make ../src/tools/make-make.r
