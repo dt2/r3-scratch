@@ -6,9 +6,34 @@
 #all: clean build
 #all: clean
 #all: build
-all: build-andro
+#all: build-andro
 #all: clean-andro
+all: run-andro
 
+PATH := $(HOME)/adt-bundle-linux-x86-20130219/sdk/platform-tools:$(PATH)
+
+run-andro:
+	#~/adt-bundle-linux-x86-20130219/sdk/tools/emulator -help-avd
+	#~/adt-bundle-linux-x86-20130219/sdk/tools/emulator -help-virtual-device
+	~/adt-bundle-linux-x86-20130219/sdk/tools/android list avd
+	pgrep -lf "arm\ @emu" || ~/adt-bundle-linux-x86-20130219/sdk/tools/emulator @emu &
+	adb wait-for-device
+	#adb --help # || true
+	adb start-server
+	echo --
+	adb shell pwd
+	adb shell set
+	#adb install ~/Downloads/terminalide-2.02.apk # only once
+	adb pull /data/data/com.spartacusrex.spartacuside/files/export.txt local-export.txt || true
+	adb shell "cd /data/data/com.spartacusrex.spartacuside/files/system/bin && ls"
+	adb push make/r3-andro /data/data/com.spartacusrex.spartacuside/files/system/bin/rebol
+	adb shell "cd /data/data/com.spartacusrex.spartacuside/files/system/bin && ls -l r3*"
+	adb push minitest.r3 /data/data/com.spartacusrex.spartacuside/files
+	#adb shell "cd /data/data/com.spartacusrex.spartacuside/files && r3 minitest.r3"
+	#adb shell "cd /data/data/com.spartacusrex.spartacuside/files/system/bin && chown 10047 r3"
+	adb shell "cd /data/data/com.spartacusrex.spartacuside/files/system/bin && ls -l rebol"
+	adb shell "cd /data/data/com.spartacusrex.spartacuside/files && ./system/bin/rebol minitest.r3"
+	
 build-andro: miniclean
 	cd make && \
 	INCL=~/android-ndk-r8e/platforms/android-14/arch-arm/usr/include \

@@ -1,0 +1,2 @@
+rebol[]
+print "hello world"
