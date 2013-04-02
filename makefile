@@ -38,8 +38,10 @@ build-andro: miniclean
 	cd make && \
 	INCL=~/android-ndk-r8e/platforms/android-14/arch-arm/usr/include \
 	#TOOLS=~/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/linux-x86/bin/arm-linux-androideabi- \
+	INCL=objs \
+	#~/android-ndk-r8e/platforms/android-14/arch-arm/usr/include \
 	TOOLS=~/arm-2012.09/bin/arm-none-linux-gnueabi- \
-	make
+	make | tee ../local-buildlog.txt
 	
 	cp -a make/r3 make/r3-andro
 	readelf -h make/r3-andro

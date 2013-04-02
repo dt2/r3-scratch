@@ -152,8 +152,9 @@ check:
 
 makefile-link: {
 # Directly linked r3 executable:
+#@dt2 try static for android
 r3$(BIN_SUFFIX):	objs $(OBJS) $(HOST)
-	$(CC) -o r3$(BIN_SUFFIX) $(OBJS) $(HOST) $(CLIB)
+	$(CC) -static -o r3$(BIN_SUFFIX) $(OBJS) $(HOST) $(CLIB)
 	$(STRIP) r3$(BIN_SUFFIX)
 	-$(NM) -a r3$(BIN_SUFFIX)
 	$(LS) r3$(BIN_SUFFIX)
