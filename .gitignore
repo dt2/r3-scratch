@@ -185,6 +185,13 @@ pip-log.txt
 local-*
 make/host
 make/libr3.so
-make/makefile
 #messed up by make make everytime. rely on: cd make && ./r3-make ../src/tools/make-make.r
+make/makefile
+# my merge-dirs
+r3-rebolsource/
+r3-my/
+r3-merge/
+#editor
+*.kate-swp
+#its really a return here :)
 

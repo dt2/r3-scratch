@@ -8,9 +8,33 @@
 #all: build
 #all: build-andro
 #all: clean-andro
+#all: pre-merge
+#all: nop
 all: run-andro
 
 PATH := $(HOME)/adt-bundle-linux-x86-20130219/sdk/platform-tools:$(PATH)
+
+nop:
+	#do nothing
+	
+pre-merge: r3-rebolsource r3-my
+	cd r3-rebolsource && git pull && git remote -v
+	cd r3-my && git pull && git remote -v
+	
+	rm r3-merge -rf || true
+	git clone r3-my r3-merge
+	
+	#cd r3-merge && git pull ../r3-my && git branch
+	cd r3-merge && git pull ../r3-rebolsource && git branch
+	
+r3-rebolsource:
+	git clone https://github.com/rebolsource/r3 r3-rebolsource
+
+r3-merge:
+	git clone r3-rebolsource r3-merge
+	
+r3-my:
+	git clone . r3-my
 
 run-andro:
 	#~/adt-bundle-linux-x86-20130219/sdk/tools/emulator -help-avd
@@ -25,12 +49,10 @@ run-andro:
 	adb shell set
 	#adb install ~/Downloads/terminalide-2.02.apk # only once
 	adb pull /data/data/com.spartacusrex.spartacuside/files/export.txt local-export.txt || true
-	adb shell "cd /data/data/com.spartacusrex.spartacuside/files/system/bin && ls"
+	adb shell "cd /data/data/com.spartacusrex.spartacuside/files/system/bin && ls -l rebol"
+	ls -l make/r3-andro
 	adb push make/r3-andro /data/data/com.spartacusrex.spartacuside/files/system/bin/rebol
-	adb shell "cd /data/data/com.spartacusrex.spartacuside/files/system/bin && ls -l r3*"
-	adb push minitest.r3 /data/data/com.spartacusrex.spartacuside/files
-	#adb shell "cd /data/data/com.spartacusrex.spartacuside/files && r3 minitest.r3"
-	#adb shell "cd /data/data/com.spartacusrex.spartacuside/files/system/bin && chown 10047 r3"
+	adb push ./minitest.r3 /data/data/com.spartacusrex.spartacuside/files
 	adb shell "cd /data/data/com.spartacusrex.spartacuside/files/system/bin && ls -l rebol"
 	adb shell "cd /data/data/com.spartacusrex.spartacuside/files && ./system/bin/rebol minitest.r3"
 	
